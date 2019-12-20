@@ -19,7 +19,15 @@
 <title>TP Integrador</title>
 </head>
 <body>
+
+
 <div class="wrapper ">
+
+<script type="text/javascript">
+
+
+</script>
+
 
 <jsp:include page="Htmls/PanelLateralAdministrador.html"></jsp:include>
     

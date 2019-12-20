@@ -19,55 +19,91 @@ function  AltaDocente(){
 	
 	
 	
-	var regexNumeros = RegExp("[0-9]+");
-	var regexLetras = RegExp("[a-zA-Z]+");
+	var regexNumeros = /^([0-9])*$/;
+	var regexLetras = (/^[A-Z\s]+$/i);
 	
-	if(Provincia.length==0 || !regexLetras.test(Provincia))
+	if(!regexLetras.test(Provincia))
 	{
 	ok=false;
 	document.getElementById("txtProvinciaDocente").style.backgroundColor = "red";
+	document.getElementById("txtProvinciaDocente").value="";
 	}
+	else
+		{
+		document.getElementById("txtProvinciaDocente").style.backgroundColor = "white";
+
+		}
 	
-	if(Localidad.length==0 || !regexLetras.test(Localidad))
+	if(!regexLetras.test(Localidad))
 	{
 	ok=false;
 	document.getElementById("txtLocalidadDocente").style.backgroundColor = "red";
+	document.getElementById("txtLocalidadDocente").value="";
 	}
+	else
+		{
+		document.getElementById("txtLocalidadDocente").style.backgroundColor = "white";
+
+		}
 	
-	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
-	{
-	ok=false;
-	document.getElementById("txtDomicilioDocente").style.backgroundColor = "red";
-	}
+//	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
+//	{
+//	ok=false;
+//	document.getElementById("txtDomicilioDocente").style.backgroundColor = "red";
+//	}
 	
 	
-	if(Telefono.length==0 || !regexNumeros.test(Telefono))
+	if(!regexNumeros.test(Telefono))
 	{
 	ok=false;
 	document.getElementById("txtTelefonoDocente").style.backgroundColor = "red";
+	document.getElementById("txtTelefonoDocente").value="";
 	}
+	else
+		{
+		document.getElementById("txtTelefonoDocente").style.backgroundColor = "white";
+
+		}
 	
-	if(Legajo.length==0 || !regexNumeros.test(Legajo))
+	if(!regexNumeros.test(Legajo))
 	{
 	ok=false;
 	document.getElementById("txtLegajoDocente").style.backgroundColor = "red";
-	}
+	document.getElementById("txtLegajoDocente").value="";
 
-	if(nombre.length==0 || !regexLetras.test(nombre))
+	}
+	else
+		{
+		document.getElementById("txtLegajoDocente").style.backgroundColor = "white";
+
+		}
+
+	if(!regexLetras.test(nombre))
 		{
 		ok=false;
 		document.getElementById("txtNombreDocente").style.backgroundColor = "red";
+		document.getElementById("txtNombreDocente").value="";
+
+		}
+	else
+		{
+		document.getElementById("txtNombreDocente").style.backgroundColor = "white";
+
 		}
 	
-	if(apellido.length==0 || !regexLetras.test(apellido))
+	if(!regexLetras.test(apellido))
 	{
 	ok=false;
 	document.getElementById("txtApellidoDocente").style.backgroundColor = "red";
-	}
-	
-	
+	document.getElementById("txtApellidoDocente").value="";
 
-	
+	}
+	else
+		{
+		document.getElementById("txtApellidoDocente").style.backgroundColor = "white";
+
+		}
+
 	if(ok)
 		{
 		form.method = "get";
@@ -106,55 +142,90 @@ function ModificarDocente()
 	
 	
 	
-	var regexNumeros = RegExp("[0-9]+");
-	var regexLetras = RegExp("[a-zA-Z]+");
+	var regexNumeros = /^([0-9])*$/;
+	var regexLetras = (/^[A-Z\s]+$/i);
 	
-
-	
-	if(Provincia.length==0 || !regexLetras.test(Provincia))
+	if(!regexLetras.test(Provincia))
 	{
 	ok=false;
 	document.getElementById("txtProvinciaDocente").style.backgroundColor = "red";
+	document.getElementById("txtProvinciaDocente").value="";
 	}
-	
+	else
+		{
+		document.getElementById("txtProvinciaDocente").style.backgroundColor = "white";
 
+		}
 	
-	if(Localidad.length==0 || !regexLetras.test(Localidad))
+	if(!regexLetras.test(Localidad))
 	{
 	ok=false;
 	document.getElementById("txtLocalidadDocente").style.backgroundColor = "red";
+	document.getElementById("txtLocalidadDocente").value="";
 	}
+	else
+		{
+		document.getElementById("txtLocalidadDocente").style.backgroundColor = "white";
+
+		}
 	
-	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
-	{
-	ok=false;
-	document.getElementById("txtDomicilioDocente").style.backgroundColor = "red";
-	}
+//	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
+//	{
+//	ok=false;
+//	document.getElementById("txtDomicilioDocente").style.backgroundColor = "red";
+//	}
 	
 	
-	if(Telefono.length==0 || !regexNumeros.test(Telefono))
+	if(!regexNumeros.test(Telefono))
 	{
 	ok=false;
 	document.getElementById("txtTelefonoDocente").style.backgroundColor = "red";
+	document.getElementById("txtTelefonoDocente").value="";
 	}
+	else
+		{
+		document.getElementById("txtTelefonoDocente").style.backgroundColor = "white";
+
+		}
 	
-	if(Legajo.length==0 || !regexNumeros.test(Legajo))
+	if(!regexNumeros.test(Legajo))
 	{
 	ok=false;
 	document.getElementById("txtLegajoDocente").style.backgroundColor = "red";
-	}
+	document.getElementById("txtLegajoDocente").value="";
 
-	if(nombre.length==0 || !regexLetras.test(nombre))
+	}
+	else
+		{
+		document.getElementById("txtLegajoDocente").style.backgroundColor = "white";
+
+		}
+
+	if(!regexLetras.test(nombre))
 		{
 		ok=false;
 		document.getElementById("txtNombreDocente").style.backgroundColor = "red";
+		document.getElementById("txtNombreDocente").value="";
+
+		}
+	else
+		{
+		document.getElementById("txtNombreDocente").style.backgroundColor = "white";
+
 		}
 	
-	if(apellido.length==0 || !regexLetras.test(apellido))
+	if(!regexLetras.test(apellido))
 	{
 	ok=false;
 	document.getElementById("txtApellidoDocente").style.backgroundColor = "red";
+	document.getElementById("txtApellidoDocente").value="";
+
 	}
+	else
+		{
+		document.getElementById("txtApellidoDocente").style.backgroundColor = "white";
+
+		}
 	
 
 
@@ -167,9 +238,8 @@ function ModificarDocente()
 		}
 	else if(!ok)
 		{
-		form.method = "post";
-		form.action= "DocenteAlta.jsp";
-		setTimeout(alertError(),5000);
+
+		alertError();
 
 		} 
 	

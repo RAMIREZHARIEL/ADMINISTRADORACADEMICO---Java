@@ -51,7 +51,7 @@
                          <div class="col-md-3">
                          <div class="form-group">
                             <label class="bmd-label-floating">ID</label>
-                          <input type="text" class="form-control" readonly="readonly" id="txtID" name="txtID" value="<%= alumno.getID()%>" >
+                          <input type="text" class="form-control" readonly="readonly" id="txtIDModificarAlumno" name="txtID" value="<%= alumno.getID()%>" >
                        
                             </div>        
 							</div>         
@@ -62,13 +62,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Nombres</label>
-                          <input type="text" class="form-control" id="txtNombre" name="txtNombre" value="<%= alumno.getNombre()%>" >
+                          <input type="text" class="form-control" id="txtNombreModificarAlumno" name="txtNombre" required value="<%= alumno.getNombre()%>" >
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Apellidos</label>
-                          <input type="text" class="form-control" id="txtApellido" name="txtApellido" value="<%= alumno.getApellido() %>" >
+                          <input type="text" class="form-control" id="txtApellidoModificarAlumno" name="txtApellido" required value="<%= alumno.getApellido() %>" >
                         </div>
                       </div>
                     </div>
@@ -76,19 +76,19 @@
                       <div class="col-md-5">
                         <div class="form-group">
                           <label class="bmd-label-floating">Legajo</label>
-                          <input type="text" class="form-control"  name="txtLegajo" id="txtLegajo" value="<%= alumno.getLegajo() %>">
+                          <input type="text" class="form-control"  name="txtLegajo" id="txtLegajoModificarAlumno" required value="<%= alumno.getLegajo() %>">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label class="bmd-label-floating">Telefono</label>
-                          <input type="text" class="form-control" name="txtTelefono" id="txtTelefono" value="<%= alumno.getTelefono() %>">
+                          <input type="text" class="form-control" name="txtTelefono" id="txtTelefonoModificarAlumno" required value="<%= alumno.getTelefono() %>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Email</label>
-                          <input type="email" class="form-control" name="txtMail" id="txtMail" value="<%= alumno.getMail() %>">
+                          <input type="email" class="form-control" name="txtMail" id="txtMailModificarAlumno" required value="<%= alumno.getMail() %>">
                         </div>
                       </div>
                     </div>
@@ -97,7 +97,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Domicilio</label>
-                          <input type="text" class="form-control" name="txtDomicilio" id="txtDomicilio" value="<%= alumno.getDireccion() %>">
+                          <input type="text" class="form-control" name="txtDomicilio" id="txtDomicilioModificarAlumno" required value="<%= alumno.getDireccion() %>">
                         </div>
                       </div>
                     </div>
@@ -105,19 +105,19 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Localidad</label>
-                          <input type="text" class="form-control" name="txtLocalidad" id="txtLocalidad" value="<%= alumno.getLocalidad() %>">
+                          <input type="text" class="form-control" name="txtLocalidad" id="txtLocalidadModificarAlumno" required value="<%= alumno.getLocalidad() %>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Provincia</label>
-                          <input type="text" class="form-control" name="txtProvincia" id="txtProvincia" value="<%= alumno.getProvincia() %>">
+                          <input type="text" class="form-control" name="txtProvincia" id="txtProvinciaModificarAlumno" required value="<%= alumno.getProvincia() %>">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha de nacimiento</label>
-                          <input type="date" class="form-control" name="txtFechaNac" id="txtFechaNac" value="<%= alumno.getFNacimiento() %>">
+                          <input type="date" class="form-control" name="txtFechaNac" id="txtFechaNacModificarAlumno" required value="<%= alumno.getFNacimiento() %>">
                         </div>
                       </div>
                     </div>
@@ -138,7 +138,11 @@
 
 
           </div>
+		                <script type="text/javascript" src="assets/js/ControladorListado.js"></script>
+    <script type="text/javascript" src="assets/js/ControladorAlumno.js"></script>
+  
 		               </div>
+		               
 
 
 </body>

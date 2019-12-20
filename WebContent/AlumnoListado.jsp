@@ -142,11 +142,11 @@
                                 <%= alumno.getProvincia() %>
                           </td>
                           <td>
-                            <button class="btn oi" data-glyph="person" aria-hidden="true" onclick="direccionar()" name="btnModificar" id="btnModificar" value="btnModificar" >  </button>
+                            <button class="btn oi" data-glyph="person" aria-hidden="true" onclick="direccionar(<%=i %>)" name="btnModificar" id="btnModificar" value="btnModificar" >  </button>
 
                           </td>
                           <td>
-                            <button class="btn oi" data-glyph="trash" aria-hidden="true" onclick="EliminarAlumno()"  id="Elimina" name="btnEliminar" value="btnEliminar" >  </button>
+                            <button class="btn oi" data-glyph="trash" aria-hidden="true" onclick="EliminarAlumno(<%=i %>)"  id="Elimina" name="btnEliminar" value="btnEliminar" >  </button>
 
                           </td>
                         </tr>

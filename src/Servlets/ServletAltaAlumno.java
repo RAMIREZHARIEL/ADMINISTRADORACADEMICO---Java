@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Dominio.Alumno;
 import Negocio.AlumnoNeg;
@@ -27,11 +28,34 @@ public class ServletAltaAlumno extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    
+    
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		validarSesion(request,response);
+//        try {
+//            req.setAttribute("cursos", CursosService.obtenerCursos((Integer)req.getSession().getAttribute("legajo"),(Integer)req.getSession().getAttribute("idTipoUsuario")));
+//            req.getRequestDispatcher("/Cursos.jsp").forward(req, resp);
+//        }catch(Exception e){
+//            e.printStackTrace();
+//            redireccionar(req,resp, "login");
+//        }
+		
+		
+
+	}
+	
+
+	
+	
 
 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		if(request.getParameter("btnGuardar")!=null)
+		{
 			Alumno alumno = new Alumno();
 			alumno.setApellido(request.getParameter("txtApellido"));
 			alumno.setNombre(request.getParameter("txtNombre"));
@@ -52,16 +76,8 @@ public class ServletAltaAlumno extends HttpServlet {
 
 			RequestDispatcher rd=request.getRequestDispatcher("AlumnoAlta.jsp");  	
 			rd.forward(request, response);
-
-	}
-	
-
-	
-	
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		}
+		
 	}
 
 }

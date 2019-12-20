@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="javax.websocket.Session"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,13 +63,14 @@
                 <div class="text-center text-dark mb-4">
                   <big>Ingrese usuario y contraseña</big>
                 </div>
-                <form action="ServletLogin" method="get">
+                <form action="ServletLogin" method="post">
+                
                   <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Usuario" type="text" name="txtUsuario">
+                      <input class="form-control" placeholder="Usuario" type="text" name="txtUsuario" value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -78,9 +81,6 @@
                       <input class="form-control " placeholder="Contraseña" type="password" name="txtContrasenia">
                     </div>
                   </div>
-                  
-        
-	
 
                   <div class="text-center">
                   

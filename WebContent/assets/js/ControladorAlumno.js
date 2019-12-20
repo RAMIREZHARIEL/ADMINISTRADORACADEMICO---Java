@@ -6,70 +6,111 @@ function  AltaAlumno(){
 	var ok = true;
 	var form = document.getElementById("FormAltaAlumno");
 	
-	var nombre = document.getElementById("txtNombre").value;
-	var apellido = document.getElementById("txtApellido").value;
-	var Legajo =  document.getElementById("txtLegajo").value;
-	var Telefono =  document.getElementById("txtTelefono").value;
-	//var Email =  document.getElementById("txtMail").value;           FALTA VALIDAR
-	var Domicilio =  document.getElementById("txtDomicilio").value;
-	var Localidad =  document.getElementById("txtLocalidad").value;
-	var Provincia =  document.getElementById("txtProvincia").value;
-	//var FechaNac =  document.getElementById("txtFechaNac").value;          FALTA VALIDAR
+	var nombre = document.getElementById("txtNombre").value;//
+	var apellido = document.getElementById("txtApellido").value;//
+	var Legajo =  document.getElementById("txtLegajo").value;//
+	var Telefono =  document.getElementById("txtTelefono").value;//
+	var Email =  document.getElementById("txtMail").value;         
+	var Domicilio =  document.getElementById("txtDomicilio").value;//
+	var Localidad =  document.getElementById("txtLocalidad").value;//
+	var Provincia =  document.getElementById("txtProvincia").value;//
+	var FechaNac =  document.getElementById("txtFechaNac").value;          
 	
 	
+	var regexNumeros = /^([0-9])*$/;
+	var regexLetras = (/^[A-Z\s]+$/i);
 	
-	var regexNumeros = RegExp("[0-9]+");
-	var regexLetras = RegExp("[a-zA-Z]+");
-	
-	if(Provincia.length==0 || !regexLetras.test(Provincia))
+	if(!regexLetras.test(Provincia))
 	{
 	ok=false;
 	document.getElementById("txtProvincia").style.backgroundColor = "red";
+	document.getElementById("txtProvincia").value="";
+
 	}
+	else
+		{
+		document.getElementById("txtProvincia").style.backgroundColor = "white";
+		}
 	
-	if(Localidad.length==0 || !regexLetras.test(Localidad))
+	if(!regexLetras.test(Localidad))
 	{
 	ok=false;
 	document.getElementById("txtLocalidad").style.backgroundColor = "red";
+	document.getElementById("txtLocalidad").value="";
 	}
+	else
+		{
+		document.getElementById("txtLocalidad").style.backgroundColor = "white";
+
+		}
 	
-	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
-	{
-	ok=false;
-	document.getElementById("txtDomicilio").style.backgroundColor = "red";
-	}
+//	if(!regexLetras.test(Domicilio))
+//	{
+//	ok=false;
+//	document.getElementById("txtDomicilio").style.backgroundColor = "red";
+//	document.getElementById("txtDomicilio").value="";
+//	}
+//	else
+//		{
+//		document.getElementById("txtDomicilio").style.backgroundColor = "white";
+//
+//		}
 	
 	
-	if(Telefono.length==0 || !regexNumeros.test(Telefono))
+	if(!regexNumeros.test(Telefono))
 	{
 	ok=false;
 	document.getElementById("txtTelefono").style.backgroundColor = "red";
+	document.getElementById("txtTelefono").value="";
 	}
+	else
+		{
+		document.getElementById("txtTelefono").style.backgroundColor = "white";
+
+		}
 	
-	if(Legajo.length==0 || !regexNumeros.test(Legajo))
+	if(!regexNumeros.test(Legajo))
 	{
 	ok=false;
 	document.getElementById("txtLegajo").style.backgroundColor = "red";
+	document.getElementById("txtLegajo").value="";
 	}
+	else
+		{
+		document.getElementById("txtLegajo").style.backgroundColor = "white";
 
-	if(nombre.length==0 || !regexLetras.test(nombre))
+		}
+
+	if(!regexLetras.test(nombre))
 		{
 		ok=false;
 		document.getElementById("txtNombre").style.backgroundColor = "red";
+		document.getElementById("txtNombre").value="";
+		}
+	else
+		{
+		document.getElementById("txtNombre").style.backgroundColor = "white";
+
 		}
 	
-	if(apellido.length==0 || !regexLetras.test(apellido))
+	if(!regexLetras.test(apellido))
 	{
 	ok=false;
 	document.getElementById("txtApellido").style.backgroundColor = "red";
+	document.getElementById("txtApellido").value="";
 	}
+	else
+		{
+		document.getElementById("txtApellido").style.backgroundColor = "white";
+
+		}
 	
 	
 
 	
 	if(ok)
 		{
-		form.method = "get";
+		form.method = "post";
 		form.action="ServletAltaAlumno";
 		setTimeout(AlertIngresado(),5000);
 		
@@ -78,7 +119,7 @@ function  AltaAlumno(){
 		{
 		form.method = "post";
 		form.action= "AlumnoAlta.jsp";
-		setTimeout(alertError(),5000);
+		alertError();
 
 		} 
 	
@@ -92,69 +133,106 @@ function ModificarAlumno()
 	
 	var ok = true;
 	var form = document.getElementById("FormModificarAlumno");
-	
-	var nombre = document.getElementById("txtNombre").value;
-	var apellido = document.getElementById("txtApellido").value;
-	var Legajo =  document.getElementById("txtLegajo").value;
-	var Telefono =  document.getElementById("txtTelefono").value;
+	var nombre = document.getElementById("txtNombreModificarAlumno").value;
+	var apellido = document.getElementById("txtApellidoModificarAlumno").value;
+	var Legajo =  document.getElementById("txtLegajoModificarAlumno").value;
+	var Telefono =  document.getElementById("txtTelefonoModificarAlumno").value;
 	//var Email =  document.getElementById("txtMail").value;           FALTA VALIDAR
-	var Domicilio =  document.getElementById("txtDomicilio").value;
-	var Localidad =  document.getElementById("txtLocalidad").value;
-	var Provincia =  document.getElementById("txtProvincia").value;
+	var Domicilio =  document.getElementById("txtDomicilioModificarAlumno").value;
+	var Localidad =  document.getElementById("txtLocalidadModificarAlumno").value;
+	var Provincia =  document.getElementById("txtProvinciaModificarAlumno").value;
 	//var FechaNac =  document.getElementById("txtFechaNac").value;          FALTA VALIDAR
 	
 	
-	
-	var regexNumeros = RegExp("[0-9]+");
-	var regexLetras = RegExp("[a-zA-Z]+");
-	
-
-	
-	if(Provincia.length==0 || !regexLetras.test(Provincia))
-	{
-	ok=false;
-	document.getElementById("txtProvincia").style.backgroundColor = "red";
-	}
+	var regexNumeros = /^([0-9])*$/;
+	var regexLetras = (/^[A-Z\s]+$/i);
 	
 
 	
-	if(Localidad.length==0 || !regexLetras.test(Localidad))
+	if(!regexLetras.test(Provincia))
 	{
 	ok=false;
-	document.getElementById("txtLocalidad").style.backgroundColor = "red";
-	}
-	
-	if(Domicilio.length==0 || !regexLetras.test(Domicilio))
-	{
-	ok=false;
-	document.getElementById("txtDomicilio").style.backgroundColor = "red";
-	}
-	
-	
-	if(Telefono.length==0 || !regexNumeros.test(Telefono))
-	{
-	ok=false;
-	document.getElementById("txtTelefono").style.backgroundColor = "red";
-	}
-	
-	if(Legajo.length==0 || !regexNumeros.test(Legajo))
-	{
-	ok=false;
-	document.getElementById("txtLegajo").style.backgroundColor = "red";
-	}
+	document.getElementById("txtProvinciaModificarAlumno").style.backgroundColor = "red";
+	document.getElementById("txtProvinciaModificarAlumno").value="";
 
-	if(nombre.length==0 || !regexLetras.test(nombre))
+	}
+	else
 		{
-		ok=false;
-		document.getElementById("txtNombre").style.backgroundColor = "red";
+		document.getElementById("txtProvinciaModificarAlumno").style.backgroundColor = "white";
 		}
 	
-	if(apellido.length==0 || !regexLetras.test(apellido))
+	if(!regexLetras.test(Localidad))
 	{
 	ok=false;
-	document.getElementById("txtApellido").style.backgroundColor = "red";
+	document.getElementById("txtLocalidadModificarAlumno").style.backgroundColor = "red";
+	document.getElementById("txtLocalidadModificarAlumno").value="";
 	}
+	else
+		{
+		document.getElementById("txtLocalidadModificarAlumno").style.backgroundColor = "white";
+
+		}
 	
+//	if(!regexLetras.test(Domicilio))
+//	{
+//	ok=false;
+//	document.getElementById("txtDomicilio").style.backgroundColor = "red";
+//	document.getElementById("txtDomicilio").value="";
+//	}
+//	else
+//		{
+//		document.getElementById("txtDomicilio").style.backgroundColor = "white";
+//
+//		}
+	
+	
+	if(!regexNumeros.test(Telefono))
+	{
+	ok=false;
+	document.getElementById("txtTelefonoModificarAlumno").style.backgroundColor = "red";
+	document.getElementById("txtTelefonoModificarAlumno").value="";
+	}
+	else
+		{
+		document.getElementById("txtTelefonoModificarAlumno").style.backgroundColor = "white";
+
+		}
+	
+	if(!regexNumeros.test(Legajo))
+	{
+	ok=false;
+	document.getElementById("txtLegajoModificarAlumno").style.backgroundColor = "red";
+	document.getElementById("txtLegajoModificarAlumno").value="";
+	}
+	else
+		{
+		document.getElementById("txtLegajoModificarAlumno").style.backgroundColor = "white";
+
+		}
+
+	if(!regexLetras.test(nombre))
+		{
+		ok=false;
+		document.getElementById("txtNombreModificarAlumno").style.backgroundColor = "red";
+		document.getElementById("txtNombreModificarAlumno").value="";
+		}
+	else
+		{
+		document.getElementById("txtNombreModificarAlumno").style.backgroundColor = "white";
+
+		}
+	
+	if(!regexLetras.test(apellido))
+	{
+	ok=false;
+	document.getElementById("txtApellidoModificarAlumno").style.backgroundColor = "red";
+	document.getElementById("txtApellidoModificarAlumno").value="";
+	}
+	else
+		{
+		document.getElementById("txtApellidoModificarAlumno").style.backgroundColor = "white";
+
+		}
 
 
 	if(ok)
@@ -186,68 +264,29 @@ function DireccionarModificar()
 
 
 
-function EliminarAlumno()
+function EliminarAlumno(IDTabla)
 {
 	
-	var tabla = document.getElementById("TablaListaALumnos"),rIndex, cIndex;
-	var boton = document.getElementsByName("btnEliminar");
-
-	for (var i=0; i<tabla.rows.length;i++)
-	{
-	
-	for(var j=0; j<tabla.rows[i].cells.length;j++)
-		{
-		tabla.rows[i].cells[j].onclick = function()
-		{
-
-			var ok= confirm("Seguro que desea eliminar?");
-			if (ok)
-				{
-				
-				rIndex= this.parentElement.rowIndex;
-				cIndex= this.cellIndex;
-				var x = "formTablaAlumnos"+rIndex;
-				var form = document.getElementById(x);
-				form.method="get";
-				form.action="ServletModificarAlumno";
-				
-				}
-		};
-		}
-	
-	}
+	var form = document.getElementById("formTablaAlumnos"+IDTabla);
+	form.method="get";
+	form.action="ServletModificarAlumno";
+	AlertEliminado();
 	
 	
 }
 
-function direccionar(){
+function direccionar(IDTabla){
 	
-	var tabla = document.getElementById("TablaListaALumnos"),rIndex, cIndex;
-	var boton = document.getElementsByName("btnModificar");
-
-
-	for (var i=0; i<tabla.rows.length;i++)
-		{
-		
-		for(var j=0; j<tabla.rows[i].cells.length;j++)
-			{
-			tabla.rows[i].cells[j].onclick = function()
-			{
-
-					rIndex= this.parentElement.rowIndex;
-					cIndex= this.cellIndex;
-						var x = "formTablaAlumnos"+rIndex;
-						var form = document.getElementById(x);
-						form.method="get";
-						form.action="ServletModificarAlumno";
-						
-			};
-			}
-		
-		}
+	var form = document.getElementById("formTablaAlumnos"+IDTabla);
+	form.method="get";
+	form.action="ServletModificarAlumno";
 	
 }
 
+function AlertEliminado()
+{
+alert("Eliminado con exito.");	
+}
 
 function AlertModificado()
 {

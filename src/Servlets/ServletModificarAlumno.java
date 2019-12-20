@@ -13,16 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import Dominio.Alumno;
 import Negocio.AlumnoNeg;
 
-/**
- * Servlet implementation class ServletModificarAlumno
- */
+
 @WebServlet("/ServletModificarAlumno")
 public class ServletModificarAlumno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public ServletModificarAlumno() {
         super();
     }
@@ -35,8 +31,8 @@ public class ServletModificarAlumno extends HttpServlet {
 		{
 
 			
-			int legajo = Integer.parseInt(request.getParameter("Legajo"));
-			Alumno alumno = AlumnoNeg.ListarAlumnos(legajo);
+			int ID = Integer.parseInt(request.getParameter("ID"));
+			Alumno alumno = AlumnoNeg.ListarAlumnos(ID);
 			
 			
 			

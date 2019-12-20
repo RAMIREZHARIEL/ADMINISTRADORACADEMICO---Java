@@ -41,7 +41,7 @@ public class ServletModificarDocente extends HttpServlet {
 			rd.forward(request, response);
 		
 		}
-		else if(request.getParameter("btnEliminarDocente")!=null)
+		if(request.getParameter("btnEliminarDocente")!=null)
 		{
 			
 			
@@ -51,17 +51,16 @@ public class ServletModificarDocente extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("DocenteListado.jsp");  	
 			rd.forward(request, response);
 		}
-		else
-		{
-			RequestDispatcher rd=request.getRequestDispatcher("DocenteListado.jsp");  	
-			rd.forward(request, response);
-		}
+
 		
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	if(request.getParameter("btnGuardarDocente")!=null)
+	{
+		
 	
 		Docente docente = new Docente();
 		docente.setApellido(request.getParameter("txtApellidoDocente"));
@@ -84,7 +83,7 @@ public class ServletModificarDocente extends HttpServlet {
 
 		RequestDispatcher rd=request.getRequestDispatcher("DocenteAlta.jsp");  	
 		rd.forward(request, response);
-		
+	}
 		
 	}
 

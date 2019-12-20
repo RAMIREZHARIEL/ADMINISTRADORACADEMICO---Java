@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import Dominio.Usuario;
 import Negocio.UsuarioNeg;
@@ -26,19 +28,30 @@ public class ServletLogin extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		if(request.getParameter("btnIngresar")!=null )
 		{
-				
+				HttpSession session = request.getSession();
 
 				String Pass=request.getParameter("txtContrasenia");
 				String usser= request.getParameter("txtUsuario");
 				String Tipo=request.getParameter("TipoLogIn");
 				
+				
 				int idUsuario=UsuarioNeg.getIDUsuario(usser, Pass, Tipo);
 				if(idUsuario!=0)
 				{
+					session.setAttribute("IDUsuario", idUsuario);
 					Usuario usuario = new Usuario(idUsuario,false,usser,Pass,Tipo);
-					RequestDispatcher rd=request.getRequestDispatcher(Tipo+".jsp");  	
+					
+					RequestDispatcher rd=request.getRequestDispatcher("Administrador.jsp");  	
 					rd.forward(request, response);
 					//JOptionPane.showMessageDialog(null, "Registrado!", "Correcto", 1);
 
@@ -52,12 +65,7 @@ public class ServletLogin extends HttpServlet {
 				}	
 				
 			
-		}
-		
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		}	
 		
 	}
 
