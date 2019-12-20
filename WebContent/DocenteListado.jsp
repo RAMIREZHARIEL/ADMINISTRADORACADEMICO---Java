@@ -3,6 +3,9 @@
     <%@ page import="Dominio.Docente" %>
 <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
+<%@ page import="Servlets.MiServlet" %>
+
+<% MiServlet.validarSesion(request,response);%>
 <html>
 <head>
 <meta charset="ISO-8859-1">

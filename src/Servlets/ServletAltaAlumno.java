@@ -36,6 +36,7 @@ public class ServletAltaAlumno extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		validarSesion(request,response);
 //        try {
+		
 //            req.setAttribute("cursos", CursosService.obtenerCursos((Integer)req.getSession().getAttribute("legajo"),(Integer)req.getSession().getAttribute("idTipoUsuario")));
 //            req.getRequestDispatcher("/Cursos.jsp").forward(req, resp);
 //        }catch(Exception e){

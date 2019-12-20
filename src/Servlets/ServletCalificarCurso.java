@@ -26,6 +26,15 @@ public class ServletCalificarCurso extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+	
+		
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		ArrayList<Alumno> listaAlumnos = null;
 		ArrayList<Alumno> listaAlumnosModificada = null;
 
@@ -71,13 +80,8 @@ public class ServletCalificarCurso extends HttpServlet {
 		RequestDispatcher rd=request.getRequestDispatcher("CursoListar.jsp");  	
 		rd.forward(request, response);
 	}	
-	
-		
-		
 	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-}
+	
+	
 
 }

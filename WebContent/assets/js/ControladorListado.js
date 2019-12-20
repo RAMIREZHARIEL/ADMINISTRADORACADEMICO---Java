@@ -10,12 +10,12 @@ function ListadoAlumnos()
 	var regexNumeros = new RegExp("[0-9]+");
 	var regexLetras = new RegExp("[a-zA-Z]+");
 	
-	if(nombre.length==0 || !regexLetras.test(nombre))
+	if(!regexLetras.test(nombre))
 	{
 	nom=false;
 	}
 	
-	if(legajo.length==0 || !regexNumeros.test(legajo))
+	if(!regexNumeros.test(legajo))
 	{
 	leg=false;
 	}
@@ -61,7 +61,7 @@ function ListadoDocentes()
 	if(leg==true || nom==true)
 	{
 
-		form.method = "get";
+		form.method = "post";
 		form.action="ServletListarDocente";
 	}
 
@@ -79,7 +79,7 @@ function ListadoCursos()
 	
 	
 	var select  = document.getElementById("FiltroAnio").value;
-	form.method="get";
+	form.method="post";
 	form.action="ServletListarCurso";
 	form.submit();
 	
@@ -89,7 +89,7 @@ function ListarAlumnosDeCurso(IDTabla)
 {	
 	//var formname = document.getElementById("formName");
 	var form = document.getElementById("TablaVerCursos"+IDTabla);
-	form.method="get";
+	form.method="post";
 	form.action="ServletListarAlumnosDeCurso";
 	
 }

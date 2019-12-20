@@ -30,6 +30,65 @@ public class ServletAltaCurso extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
+		
+		
+		
+		
+//		if(request.getParameter("btnAgregarDocente")!=null)
+//		{
+//			
+//
+//				Docente docente = new Docente();
+//				docente.setID(Integer.parseInt(request.getParameter("IDDocente")));
+//				docente.setApellido(request.getParameter("ApellidoProfesor"));
+//				docente.setNombre(request.getParameter("NombreProfesor"));
+//				Curso curso = new Curso();
+//				curso.setAnio(Integer.parseInt(request.getParameter("AnioIngresado")));
+//				curso.setMateria(request.getParameter("MateriaIngresada"));
+//				curso.setEliminado(false);
+//				curso.setSemestre(request.getParameter("SemestreIngresado"));
+//				curso.setDocente(docente);
+//				
+//				request.setAttribute("DatosCursoConProfesor", curso);
+//				
+//				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
+//				rd.forward(request, response);
+//			
+//
+//		}
+		
+		
+		
+		
+//		if(request.getParameter("btnInscribirAlumnos")!=null)
+//		{
+//			
+//			ArrayList<Alumno> listado= new ArrayList<>();	
+//			String check[] = request.getParameterValues("chxAlumno");
+//			if(check!=null)
+//			{
+//				for (int i=0; i<check.length;i++)
+//				{
+//					listado.add(AlumnoNeg.ListarAlumnos(Integer.parseInt(check[i])));
+//				}
+//			}
+//			
+//			request.setAttribute("ListaAlumnosInscriptos", listado);
+//			RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  
+//			rd.forward(request, response);
+//
+//		}
+		
+		
+		
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		
 		if(request.getParameter("btnAltaCurso")!=null)
 		{
 			if(request.getParameter("MateriaIngresada")!=null)
@@ -49,72 +108,24 @@ public class ServletAltaCurso extends HttpServlet {
 			}
 
 		}
-		
-		if(request.getParameter("btnBuscarProfesor")!=null)
-		{
-			
-		
-			ArrayList<Docente> listado=null;	
-			int legajo=-1;
-			String nombre="";
-			if(request.getParameter("txtLegajoProfesor").length()>0)
-			{
-				legajo=Integer.parseInt(request.getParameter("txtLegajoProfesor"));
-			}
-			if(request.getParameter("txtNombreProfesor")!=null)
-			{
-				nombre=request.getParameter("txtNombreProfesor");
-			}
-			
-			
-			if(legajo!=-1 && nombre!=null)
-			{
-				listado = DocenteNeg.ListarDocentes(nombre, legajo);
-			}
-			else if(legajo!=-1)
-			{
-				Docente docente=DocenteNeg.ListarDocentes(legajo);
-				
-				request.setAttribute("ListaDocentes", docente);
-				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
-				rd.forward(request, response);
-				return;
-			}
-			else
-			{
-				listado = DocenteNeg.ListarDocentes(nombre);
-			}
-			
-			request.setAttribute("ListaDocentes", listado);
-			RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
-			rd.forward(request, response);
-			
-		}
-		
-		
 		if(request.getParameter("btnAgregarDocente")!=null)
 		{
-			
-
-				Docente docente = new Docente();
-				docente.setID(Integer.parseInt(request.getParameter("IDDocente")));
-				docente.setApellido(request.getParameter("ApellidoProfesor"));
-				docente.setNombre(request.getParameter("NombreProfesor"));
+			if(request.getParameter("MateriaIngresada")!=null)
+			{
+				
 				Curso curso = new Curso();
 				curso.setAnio(Integer.parseInt(request.getParameter("AnioIngresado")));
 				curso.setMateria(request.getParameter("MateriaIngresada"));
 				curso.setEliminado(false);
 				curso.setSemestre(request.getParameter("SemestreIngresado"));
-				curso.setDocente(docente);
-				
-				request.setAttribute("DatosCursoConProfesor", curso);
+				request.setAttribute("Curso", curso);
+			
 				
 				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
 				rd.forward(request, response);
-			
+			}
 
 		}
-		
 		if(request.getParameter("btnBuscarAlumnos")!=null)
 		{
 			
@@ -156,27 +167,46 @@ public class ServletAltaCurso extends HttpServlet {
 			
 
 		}
+		if(request.getParameter("btnBuscarProfesor")!=null)
+		{
+			
 		
-		
-//		if(request.getParameter("btnInscribirAlumnos")!=null)
-//		{
-//			
-//			ArrayList<Alumno> listado= new ArrayList<>();	
-//			String check[] = request.getParameterValues("chxAlumno");
-//			if(check!=null)
-//			{
-//				for (int i=0; i<check.length;i++)
-//				{
-//					listado.add(AlumnoNeg.ListarAlumnos(Integer.parseInt(check[i])));
-//				}
-//			}
-//			
-//			request.setAttribute("ListaAlumnosInscriptos", listado);
-//			RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  
-//			rd.forward(request, response);
-//
-//		}
-		
+			ArrayList<Docente> listado=null;	
+			int legajo=-1;
+			String nombre="";
+			if(request.getParameter("txtLegajoProfesor").length()>0)
+			{
+				legajo=Integer.parseInt(request.getParameter("txtLegajoProfesor"));
+			}
+			if(request.getParameter("txtNombreProfesor")!=null)
+			{
+				nombre=request.getParameter("txtNombreProfesor");
+			}
+			
+			
+			if(legajo!=-1 && nombre!=null)
+			{
+				listado = DocenteNeg.ListarDocentes(nombre, legajo);
+			}
+			else if(legajo!=-1)
+			{
+				Docente docente=DocenteNeg.ListarDocentes(legajo);
+				
+				request.setAttribute("ListaDocentes", docente);
+				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
+				rd.forward(request, response);
+				return;
+			}
+			else
+			{
+				listado = DocenteNeg.ListarDocentes(nombre);
+			}
+			
+			request.setAttribute("ListaDocentes", listado);
+			RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
+			rd.forward(request, response);
+			
+		}
 		if(request.getParameter("btnGuardarCurso")!=null)
 		{
 			Curso curso = new Curso();
@@ -214,29 +244,7 @@ public class ServletAltaCurso extends HttpServlet {
 		}
 		
 		
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		if(request.getParameter("btnAgregarDocente")!=null)
-		{
-			if(request.getParameter("MateriaIngresada")!=null)
-			{
-				
-				Curso curso = new Curso();
-				curso.setAnio(Integer.parseInt(request.getParameter("AnioIngresado")));
-				curso.setMateria(request.getParameter("MateriaIngresada"));
-				curso.setEliminado(false);
-				curso.setSemestre(request.getParameter("SemestreIngresado"));
-				request.setAttribute("Curso", curso);
-			
-				
-				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
-				rd.forward(request, response);
-			}
-
-		}
+		
 	}
 
 }

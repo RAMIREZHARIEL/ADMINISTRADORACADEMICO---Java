@@ -8,6 +8,9 @@
         <%@ page import="java.util.function.*" %>
 <!DOCTYPE html>
 <html>
+<%@ page import="Servlets.MiServlet" %>
+
+<% MiServlet.validarSesion(request,response);%>
 <head>
 <meta charset="ISO-8859-1">
   <link rel="stylesheet" href="Content/bootstrap.min.css">
@@ -82,9 +85,7 @@
                         <th>
                           Año
                         </th>
-                        <th>
-                          Docente
-                        </th>
+                        
                        
                         <th>
                           Calificar Alumnos
@@ -102,6 +103,7 @@ for (Curso curso : list)
                 <form id="<%= x %>">
 
                         <tr>
+                          <input type="hidden" name="IDCurso" id="IDCurso" value="<%=curso.getID() %>" >
                           <td>
                           <%= curso.getMateria() %>
                           </td>
@@ -111,10 +113,7 @@ for (Curso curso : list)
                           <td>
                          <%= curso.getAnio() %>
                           </td>
-                          <td>
-                          <input type="hidden" name="IDCurso" id="IDCurso" value="<%=curso.getID() %>" >
-						<%= curso.getDocente().getID() %>
-                          </td>
+           
                       
                           <td>
                             <button type="submit" class="btn" onclick="ListarAlumnosDeCurso(<%=i %>)" name="btnCalificarCurso" id="btnCalificarCurso" value="btnCalificarCurso"> X </button>

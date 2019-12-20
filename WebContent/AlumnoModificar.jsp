@@ -3,6 +3,9 @@
     <%@ page import="Dominio.Alumno" %>
     
 <!DOCTYPE html>
+<%@ page import="Servlets.MiServlet" %>
+
+<% MiServlet.validarSesion(request,response);%>
 <html>
 <head>
 <meta charset="ISO-8859-1">

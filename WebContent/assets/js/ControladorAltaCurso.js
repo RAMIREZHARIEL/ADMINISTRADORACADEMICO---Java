@@ -25,7 +25,7 @@ function ListarAlumnos()
 //	
 //	if(leg==true || nom==true)
 //	{
-		form.method = "get";
+		form.method = "post";
 		form.action="ServletAltaCurso";
 
 //	}
@@ -45,8 +45,7 @@ function ListarProfesores()
 	var nom=true;
 	var leg=true;
 	var form = document.getElementById("formListaDocentes");
-	//var nombre = document.getElementById("txtNombreProfesor");
-	//var legajo = document.getElementById("txtLegajoProfesor");
+
 	
 	var regexNumeros = new RegExp("[0-9]+");
 	var regexLetras = new RegExp("[a-zA-Z]+");
@@ -73,17 +72,10 @@ function ListarProfesores()
 	var div = document.getElementById("HabilitarAlumnos").style.visibility = 'visible';
 
 	
-		form.method = "get";
+		form.method = "post";
 		form.action="ServletAltaCurso";
 		
 		
-//	}
-
-//	else
-//		{
-//		alertError();
-//		form.action= "DocenteListado.jsp";
-//		}
 
 }
 
@@ -97,7 +89,7 @@ function CursoCompleto()
 function GuardarCurso()
 {
 	var form = document.getElementById("formAltaAlumnosCurso");
-	form.method = "get";
+	form.method = "post";
 	form.action="ServletAltaCurso";
 	
 }
@@ -107,7 +99,7 @@ function SeleccionarProfesor(IDTabla)
 {
 	
 	var form = document.getElementById(IDTabla);
-	form.method="get";
+	form.method="post";
 	form.action="ServetAltaCurso";
 }
 
@@ -115,9 +107,9 @@ function SeleccionarProfesor(IDTabla)
 function GuardarNotas()
 {
 	var form = document.getElementById("TablaCalificarCurso");
-	form.method = "get";
+	form.method = "post";
 	form.action="ServletCalificarCurso";
-	alert("a");
+	
 
 }
 
@@ -130,7 +122,7 @@ function HabilitarProfesores()
 	
 	var form = document.getElementById("formDatosCurso");
 
-	form.method = "get";
+	form.method = "post";
 	form.action="ServletAltaCurso";
 	
 	

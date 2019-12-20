@@ -30,15 +30,28 @@ public class ServletLogin extends HttpServlet {
 		
 		
 		
+		
+		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
+		
 		if(request.getParameter("btnIngresar")!=null )
 		{
+			
+			
+			//HttpSession session = request.getSession();
+			//session.setAttribute("user", request.getParameter("user"));
+			//session.setAttribute("tipo", "admin");
+			//String site = request.getContextPath() + "/BandejaUsuarios.jsp" ; 
+			//response.setStatus(response.SC_MOVED_TEMPORARILY); 
+			//response.setHeader("Location", site);
+			
 				HttpSession session = request.getSession();
+				
 
 				String Pass=request.getParameter("txtContrasenia");
 				String usser= request.getParameter("txtUsuario");
@@ -66,6 +79,7 @@ public class ServletLogin extends HttpServlet {
 				
 			
 		}	
+
 		
 	}
 

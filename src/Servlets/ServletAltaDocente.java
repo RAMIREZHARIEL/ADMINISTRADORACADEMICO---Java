@@ -27,10 +27,14 @@ public class ServletAltaDocente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-//	if(request.getParameter("btnModificarDocente")!=null)
-//	{
-//		
-//	}
+
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		Docente docente = new Docente();
 		docente.setApellido(request.getParameter("txtApellidoDocente"));
 		docente.setNombre(request.getParameter("txtNombreDocente"));
@@ -51,11 +55,6 @@ public class ServletAltaDocente extends HttpServlet {
 
 		RequestDispatcher rd=request.getRequestDispatcher("DocenteAlta.jsp");  	
 		rd.forward(request, response);
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }

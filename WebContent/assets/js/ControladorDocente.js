@@ -106,7 +106,7 @@ function  AltaDocente(){
 
 	if(ok)
 		{
-		form.method = "get";
+		form.method = "post";
 		form.action="ServletAltaDocente";
 		setTimeout(AlertIngresado(),5000);
 		

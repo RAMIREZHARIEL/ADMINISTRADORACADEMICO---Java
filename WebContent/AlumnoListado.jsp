@@ -7,6 +7,9 @@
     
     
 <!DOCTYPE html>
+<%@ page import="Servlets.MiServlet" %>
+
+<% MiServlet.validarSesion(request,response);%>
 <html>
 <head><meta charset="ISO-8859-1">
   <link rel="stylesheet" href="Content/bootstrap.min.css">
