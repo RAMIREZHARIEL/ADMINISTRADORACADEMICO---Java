@@ -23,6 +23,7 @@
   <script src="assets/js/popper.min.js"></script>
       <script type="text/javascript" src="assets/js/ControladorAltaCurso.js"></script>
         <link href="assets/img/icons/font/css/open-iconic.css" rel="stylesheet">
+        
       
   
 
@@ -211,7 +212,7 @@
 		                      <tbody>
 		                      
                   						<form id="<%= x %>"> 
-			      <input type="hidden" name="MateriaIngresada" id="<%= MateriaId%>" value="<%=request.getParameter("MateriaIngresada") %>" > 
+			     <input type="hidden" name="MateriaIngresada" id="<%= MateriaId%>" value="<%=request.getParameter("MateriaIngresada") %>" > 
 				 <input type="hidden" name="SemestreIngresado" id="<%= SemestreId%>" value="<%= request.getParameter("SemestreIngresado")%>"> 
 				 <input type="hidden" name="AnioIngresado" id="<%= AnioId%>" value="<%= request.getParameter("AnioIngresado") %>">
 			
@@ -274,7 +275,7 @@
 		                          </td>
 
 		                          <td>
-		                            <button  type="submit" class="btn" data-glyph="add" aria-hidden="true" id="btnAgregarDocente" name="btnAgregarDocente" value="btnAgregarDocente" onclick="SeleccionarProfesor(<%=x %>)"  > X </button>
+		                            <button  type="submit" class="btn" data-glyph="add" aria-hidden="true" id="btnAgregarDocente" name="btnAgregarDocente" value="btnAgregarDocente" onclick="SeleccionarProfesor(<%=i %>)"  > X </button>
 		                          </td>
 		                        </tr>
 		                          </form>
@@ -501,7 +502,7 @@
 				
 					%>
                             <a class="btn oi" data-glyph="add" aria-hidden="true" onclick="CursoCompleto()" name="btnInscribirAlumnos" value="btnInscribirAlumnos" > Confirmar ALumnos </a>
-                  	                                    <button type="submit" id="btnGuardarCurso" onsubmit="GuardarCurso()" disabled name="btnGuardarCurso" value="btnGuardarCurso" class="btn btn-primary btn-block pull-right">Guardar</button>
+                  	                                    <button type="submit" id="btnGuardarCurso" onclick="GuardarCurso()" disabled name="btnGuardarCurso" value="btnGuardarCurso" class="btn btn-primary btn-block pull-right">Guardar</button>
                   	          </form>
 					 </div>
                   
@@ -740,7 +741,7 @@
   <script type="text/javascript" src="assets/js/ControladorAltaCurso.js"></script>
 	
 	
-          </div>
+         
 
 </body>
 </html>

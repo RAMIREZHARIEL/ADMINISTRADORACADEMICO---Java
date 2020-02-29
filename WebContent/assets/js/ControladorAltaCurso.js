@@ -97,18 +97,51 @@ function GuardarCurso()
 
 function SeleccionarProfesor(IDTabla)
 {
-	
-	var form = document.getElementById(IDTabla);
+	var form = document.getElementById("formTablaDocentesAltaCurso"+IDTabla);
 	form.method="post";
-	form.action="ServetAltaCurso";
+	form.action="ServletAltaCurso";
+	
 }
 
 
-function GuardarNotas()
+function GuardarNotas(CANT)
 {
+	var regexNumeros = /^[0-9]*$/;
 	var form = document.getElementById("TablaCalificarCurso");
+	for (var i=1;i<=CANT;i++)
+	{
+		for (var e=1;e<5;e++)
+			{
+			var nota = document.getElementById("Nota"+e+"ID"+i);
+			
+			if(regexNumeros.test(nota.value))
+				{
+				if(nota.value>10 || nota.value<0)
+				{
+					alert("Error al cargar las notas. Debe ingresar valores de 1-10");
+					form.method = "post";
+					form.action="Docente.jsp";
+					return;
+					
+				
+				}
+			}
+			else 
+			{
+				
+				alert("Error al cargar las notas. Debe ingresar valores de 1-10");
+				form.method = "post";
+				form.action="Docente.jsp";		
+				return;
+			}
+			
+			}
+	}
+	
+	
 	form.method = "post";
 	form.action="ServletCalificarCurso";
+	
 	
 
 }

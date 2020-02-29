@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        <%@ page import="Dominio.Alumno" %>
+            <%@ page import="Dominio.Alumno" %>
         <%@ page import="Dominio.Curso" %>
     <%@ page import="java.util.ArrayList" %>
     
@@ -27,74 +27,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   
 <title>TP Integrador</title>
-
 </head>
 <body>
 
-
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
-
-      <div class="logo">
-        <a class="simple-text logo-normal active">
-          DOCENTE
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-
-<form id="FormDocenteDireccionar2" action="ServletDireccionarDocente" method="post" >
-        	<li class="nav-item" >	
-        	<% 
-        	int IDDocente=-1;
-        	if(request.getAttribute("IDDocente")!=null)
-        		{
-        		IDDocente= (int)request.getAttribute("IDDocente");
-        		%>
-			<input type="hidden"  value="<%=IDDocente %>" name="IDDocente" >
-			<%} %>	
-            <a type="submit" href="javascript:{}" onclick="document.getElementById('FormDocenteDireccionar2').submit()" class="nav-link"   >
-              <i class="material-icons">content_paste</i>
-              <p>Mis Cursos</p>
-            </a>
-
-          </li>
-</form>
-
-    
-          
-         
-           <li class="nav-item ">
-            <a class="nav-link" href="Login.jsp">
-              <i class="material-icons">logout</i>
-              <p>Salir</p>
-            </a>
-          </li>
-          
-
-        </ul>
-      </div>
-    </div>    
-
 <div class="wrapper ">
 
-
-
-	<div class="main-panel">
-		<div class="container">
-
-
-              <div class="card card-plain">
+<jsp:include page="Htmls/PanelLateralAdministrador.html"></jsp:include>
+    
+   
+    
+    
+    <!--  TERMINA -->
+    
+        <div class="main-panel">
+        <div class="container">
+        
+        
+        <jsp:include page="Htmls/HeadCursos.html"></jsp:include>
+        
+        
+                      <div class="card card-plain">
                 <div class="card-header card-header-primary ">
                   <h4 class="card-title mt-0 text-center">Listado Cursos vigentes</h4>
                
                 <div class="form-row align-items-center">
-                <form id="formFiltroAnio" >
-                <% 
-                if(request.getAttribute("IDDocente")!=null){
-                	IDDocente = (int)request.getAttribute("IDDocente"); %>
-                <input type="hidden" name="IDDocente" value="<%=IDDocente %>" >
-                	<%} %>
-                	<select class="custom-select mr-sm-2" onchange="ListadoCursos()" data-size="5" id="FiltroAnio"  name="FiltroAnio">
+                <form id="formFiltroAnioAdministrador" >
+
+                	<select class="custom-select mr-sm-2" onchange="ListadoCursosVigentes()" data-size="5" id="FiltroAnioAdministrador"  name="FiltroAnioAdministrador">
                 		<option value="0">
                 		Año  
                 		</option>
@@ -138,7 +97,7 @@
                         
                        
                         <th>
-                          Calificar Alumnos
+                          Ver curso
                         </th>
                       </thead>
                       <tbody>
@@ -148,12 +107,11 @@ int i=0;
 for (Curso curso : list)
 {
 	i++;
-	String x = "TablaVerCursos"+i;
+	String x = "VerCursos"+i;
 %>
                 <form id="<%= x %>">
 
                         <tr>
-                        <input type="hidden" name="IDDocente" value="<%=IDDocente%>">
                           <input type="hidden" name="IDCurso" id="IDCurso" value="<%=curso.getID() %>" >
                           <td>
                           <%= curso.getMateria() %>
@@ -167,7 +125,7 @@ for (Curso curso : list)
            
                       
                           <td>
-                            <button type="submit" class="btn btn-primary" onclick="ListarAlumnosDeCurso(<%=i %>)" name="btnCalificarCurso" id="btnCalificarCurso" value="btnCalificarCurso"> X </button>
+                            <button type="submit" class="btn btn-primary" onclick="VerCurso(<%=i %>)" name="btnVerCurso" id="btnVerCurso" value="btnVerCurso"> X </button>
 
                           </td>
                         
@@ -188,18 +146,15 @@ for (Curso curso : list)
                 </div>
 
           </div>
-          </div>
-          </div>
-       
-   
-              
-              
-            		</div>			
-                   
-                
-                  
-    <script type="text/javascript" src="assets/js/ControladorListado.js"></script>
+        
+        
+        
+        
 
+    </div>
+     </div>
+</div>
+    <script type="text/javascript" src="assets/js/ControladorListado.js"></script>
 
 
 </body>

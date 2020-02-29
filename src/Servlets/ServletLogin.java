@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import Dominio.Usuario;
+import Negocio.DocenteNeg;
 import Negocio.UsuarioNeg;
 
 /**
@@ -52,6 +53,7 @@ public class ServletLogin extends HttpServlet {
 			
 				HttpSession session = request.getSession();
 				
+				
 
 				String Pass=request.getParameter("txtContrasenia");
 				String usser= request.getParameter("txtUsuario");
@@ -59,12 +61,16 @@ public class ServletLogin extends HttpServlet {
 				
 				
 				int idUsuario=UsuarioNeg.getIDUsuario(usser, Pass, Tipo);
+				//int idDocente = DocenteNeg.ListarDocentes(Legajo)
+				
+				
 				if(idUsuario!=0)
 				{
-					session.setAttribute("IDUsuario", idUsuario);
 					Usuario usuario = new Usuario(idUsuario,false,usser,Pass,Tipo);
+					session.setAttribute("Usuario", usuario);
 					
-					RequestDispatcher rd=request.getRequestDispatcher("Administrador.jsp");  	
+					
+					RequestDispatcher rd=request.getRequestDispatcher(Tipo+".jsp");  	
 					rd.forward(request, response);
 					//JOptionPane.showMessageDialog(null, "Registrado!", "Correcto", 1);
 

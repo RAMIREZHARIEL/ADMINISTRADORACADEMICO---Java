@@ -110,9 +110,7 @@ public class ServletAltaCurso extends HttpServlet {
 		}
 		if(request.getParameter("btnAgregarDocente")!=null)
 		{
-			if(request.getParameter("MateriaIngresada")!=null)
-			{
-				
+			
 				Curso curso = new Curso();
 				curso.setAnio(Integer.parseInt(request.getParameter("AnioIngresado")));
 				curso.setMateria(request.getParameter("MateriaIngresada"));
@@ -123,9 +121,10 @@ public class ServletAltaCurso extends HttpServlet {
 				
 				RequestDispatcher rd=request.getRequestDispatcher("CursoAlta.jsp");  	
 				rd.forward(request, response);
-			}
+			
 
 		}
+
 		if(request.getParameter("btnBuscarAlumnos")!=null)
 		{
 			

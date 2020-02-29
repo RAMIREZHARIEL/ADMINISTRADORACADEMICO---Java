@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MiServlet
@@ -22,11 +23,19 @@ public class MiServlet extends HttpServlet {
 
 	public static void validarSesion(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			if ((Integer) req.getSession().getAttribute("IDUsuario") == null) {
+			HttpSession session = req.getSession();
+			if (session.getAttribute("Usuario") == null) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
 			redireccionar(req, resp, "Login.jsp");
 		}
+		/*	public static void validarSesion(HttpServletRequest req, HttpServletResponse resp) {
+		try {
+			if ((Integer) req.getSession().getAttribute("Usuario") == null) {
+				throw new Exception();
+			}
+		 */
 	}
 }
+

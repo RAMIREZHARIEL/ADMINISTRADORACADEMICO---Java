@@ -111,17 +111,19 @@ public class CursoNeg {
 		try {
 
 			ResultSet rs = acceso.query(query);
-			Docente docente = new Docente();
+			int idDocente;
 			while(rs.next())
 			{
 				curso = new Curso();
 				curso.setID(rs.getInt("ID"));
 				curso.setMateria(rs.getString("Materia"));
 				curso.setSemestre(rs.getString("Semestre"));
-				docente.setID(rs.getInt("IDDocente"));
 				curso.setAnio(rs.getInt("Anio"));
 				curso.setEliminado(rs.getBoolean("Eliminado"));
-				curso.setDocente(docente);
+				idDocente =rs.getInt("IDDocente");
+				curso.setDocente(DocenteNeg.ListarDocenteID(idDocente));
+				curso.setAlumnos(CursoNeg.ListarAlumnosXCurso(ID));
+				
 				
 			}
 			
@@ -136,12 +138,52 @@ public class CursoNeg {
 		return curso;
 	}
 	
+	
 	public static ArrayList<Curso> ListarCursos (int anio)
 	{
 		acceso = new AccesoBD();
 		acceso.Open();
 		ArrayList<Curso> listado = null;
-		String query = "select * from Cursos where Eliminado=0 and Anio="+anio+"";
+		String query = "select * from Cursos where Eliminado=0  and Anio="+anio+"";
+		try {
+			listado = new ArrayList<>();
+			Curso curso = null;
+			Docente docente = null;
+			ResultSet rs = acceso.query(query);
+			while(rs.next())
+			{
+				docente = new Docente();
+				curso = new Curso();
+				curso.setID(rs.getInt("ID"));
+				curso.setMateria(rs.getString("Materia"));
+				curso.setSemestre(rs.getString("Semestre"));
+				docente.setID(rs.getInt("IDDocente"));
+				curso.setAnio(rs.getInt("Anio"));
+				curso.setEliminado(rs.getBoolean("Eliminado"));
+				curso.setDocente(docente);
+				listado.add(curso);
+				
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			acceso.close();
+		}
+		return listado;
+		
+		
+	}
+
+	
+	
+	public static ArrayList<Curso> ListarCursos (int anio, int IDDocente)
+	{
+		acceso = new AccesoBD();
+		acceso.Open();
+		ArrayList<Curso> listado = null;
+		String query = "select * from Cursos where Eliminado=0 and IDDocente="+IDDocente+" and Anio="+anio+"";
 		try {
 			listado = new ArrayList<>();
 			Curso curso = null;

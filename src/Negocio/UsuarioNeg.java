@@ -16,7 +16,7 @@ public class UsuarioNeg {
 		acceso = new AccesoBD();
 		acceso.Open();
 		
-		String query = "INSERT INTO Usuarios (Usser, Password, Tipo, IDUsuario) VALUES ('"+nuevo.getUsser()+"','"+nuevo.getPassword()+"','"+nuevo.getTipo()+"','"+nuevo.getIDUsuario()+"')";
+		String query = "INSERT INTO Usuarios (Usser, Password, Tipo) VALUES ('"+nuevo.getUsser()+"','"+nuevo.getPassword()+"','"+nuevo.getTipo()+"')";
 		try {
 
 			estado=acceso.execute(query);

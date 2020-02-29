@@ -76,6 +76,12 @@ public class ServletCalificarCurso extends HttpServlet {
 		}
 		
 		
+		if(request.getParameter("IDDocente")!=null)
+		{
+			int idDocente= Integer.parseInt(request.getParameter("IDDocente"));
+			request.setAttribute("IDDocente", idDocente);
+			
+		}
 		
 		RequestDispatcher rd=request.getRequestDispatcher("CursoListar.jsp");  	
 		rd.forward(request, response);

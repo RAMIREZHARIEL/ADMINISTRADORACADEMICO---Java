@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dominio.Curso;
+import Dominio.Docente;
 import Negocio.CursoNeg;
 
 
@@ -34,17 +35,44 @@ public class ServletListarCurso extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		
 		if(request.getParameter("FiltroAnio")!=null)
 		{
+			if(request.getParameter("IDDocente")!=null)
+			{
+				//Docente docente = (Docente)request.getAttribute("Docente");
+				int IDDocente = Integer.parseInt( request.getParameter("IDDocente"));
+				int anio = Integer.parseInt( request.getParameter("FiltroAnio"));
+				ArrayList<Curso> listado = CursoNeg.ListarCursos(anio,IDDocente);
+				request.setAttribute("ListaCursos", listado);
+				request.setAttribute("IDDocente", IDDocente);
+				
+			}
 			
-			int anio = Integer.parseInt( request.getParameter("FiltroAnio"));
+			
+			
+			RequestDispatcher rd=request.getRequestDispatcher("CursoListar.jsp");  	
+			rd.forward(request, response);
+		}
+		if(request.getParameter("FiltroAnioAdministrador")!=null)
+		{
+			int anio = Integer.parseInt( request.getParameter("FiltroAnioAdministrador"));
 			ArrayList<Curso> listado = CursoNeg.ListarCursos(anio);
 			request.setAttribute("ListaCursos", listado);
+
+			RequestDispatcher rd=request.getRequestDispatcher("AdministradorCursosVigentes.jsp");  	
+			rd.forward(request, response);
+			
+		}
+		if(request.getParameter("btnVerCurso")!=null)
+		{
+			int IDCurso = Integer.parseInt(request.getParameter("IDCurso"));
+			request.setAttribute("IDCurso", IDCurso);
+			RequestDispatcher rd=request.getRequestDispatcher("CursoVer.jsp");  	
+			rd.forward(request, response);
 		}
 		
-		RequestDispatcher rd=request.getRequestDispatcher("CursoListar.jsp");  	
-		rd.forward(request, response);
 	
 	}
 

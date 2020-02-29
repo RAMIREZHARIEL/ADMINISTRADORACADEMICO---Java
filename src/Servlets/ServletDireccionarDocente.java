@@ -1,7 +1,6 @@
 package Servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,48 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Dominio.Alumno;
-import Dominio.Curso;
-import Negocio.CursoNeg;
-
-
-@WebServlet("/ServletListarAlumnosDeCurso")
-public class ServletListarAlumnosDeCurso extends HttpServlet {
+/**
+ * Servlet implementation class ServletDireccionarDocente
+ */
+@WebServlet("/ServletDireccionarDocente")
+public class ServletDireccionarDocente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public ServletListarAlumnosDeCurso() {
+  
+    public ServletDireccionarDocente() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-		}
-
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Alumno> listaAlumnos = null;
-		if(request.getParameter("btnCalificarCurso")!=null)
+	
+		
+		if(request.getParameter("IDDocente")!=null)
 		{
-			
-			Curso curso = new Curso();
-			int idCurso = Integer.parseInt( request.getParameter("IDCurso"));
-			curso = CursoNeg.ListarCurso(idCurso);
-			listaAlumnos = CursoNeg.ListarAlumnosXCurso(idCurso);
-			curso.setAlumnos(listaAlumnos);
-			request.setAttribute("CursoACalificar", curso);
-			
 			int idDocente= Integer.parseInt(request.getParameter("IDDocente"));
 			request.setAttribute("IDDocente", idDocente);
 			
-			
-			RequestDispatcher rd=request.getRequestDispatcher("DocenteCalificar.jsp");  	
-			rd.forward(request, response);
-			
 		}
+		RequestDispatcher rd=request.getRequestDispatcher("CursoListar.jsp");  	
+		rd.forward(request, response);
+		
 	}
 
 }

@@ -79,9 +79,7 @@ public class DocenteNeg {
 	}
 	
 	
-	
-	
-	public static Docente ListarDocentes(int Legajo)
+	public static Docente ListarDocentes(int IDUsuario)
 	{
 		
 		acceso = new AccesoBD();
@@ -91,7 +89,57 @@ public class DocenteNeg {
 		
 		Docente docente = new Docente();
 
-		String query = "SELECT * from docentes where Legajo='"+Legajo+"' and Estado='1'";
+		String query = "SELECT * from docentes where IDUsuario='"+IDUsuario+"' and Estado='1'";
+		try {
+			
+
+			 ResultSet rs = acceso.query(query);
+			 while(rs.next())
+			 {
+				 docente.setApellido(rs.getString("Apellido"));
+				 docente.setDireccion(rs.getString("Direccion"));
+				 docente.setEstado(rs.getBoolean("Estado"));
+				 docente.setFNacimiento(rs.getString("FNac"));
+				 docente.setLegajo(rs.getInt("Legajo"));
+				 docente.setLocalidad(rs.getString("Localidad"));
+				 docente.setMail(rs.getString("Mail"));
+				 docente.setNombre(rs.getString("Nombre"));
+				 docente.setProvincia(rs.getString("Provincia"));
+				 docente.setTelefono(rs.getString("Telefono"));
+				 docente.setFNacimiento(rs.getString("FNac"));
+				 docente.setID(rs.getInt("ID"));
+				 docente.setIDUsuario(IDUsuario);
+				
+				 
+				 
+			 }
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}finally
+		{
+			acceso.close();
+		}
+		return docente;
+
+		
+	}
+	
+	
+	
+	public static Docente ListarDocenteID(int ID)
+	{
+		
+		acceso = new AccesoBD();
+		acceso.Open();
+		ArrayList<Docente> Lista= new ArrayList<Docente>();
+		
+		
+		Docente docente = new Docente();
+
+		String query = "SELECT * from docentes where ID='"+ID+"' and Estado='1'";
 		try {
 			
 

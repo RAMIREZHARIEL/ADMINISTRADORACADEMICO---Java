@@ -85,6 +85,25 @@ function ListadoCursos()
 	
 }
 
+function ListadoCursosVigentes()
+{
+	
+	var form = document.getElementById("formFiltroAnioAdministrador");
+	var select  = document.getElementById("FiltroAnioAdministrador").value;
+	form.method="post";
+	form.action="ServletListarCurso";
+	form.submit();
+	
+}
+
+function VerCurso(IDTabla)
+{
+	var form = document.getElementById("VerCursos"+IDTabla);
+	form.method="post";
+	form.action="ServletListarCurso";
+
+}
+
 function ListarAlumnosDeCurso(IDTabla)
 {	
 	//var formname = document.getElementById("formName");

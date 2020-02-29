@@ -280,6 +280,15 @@ function EliminarDocente()
 	
 }
 
+function EnviarDocente()
+{
+	var form = document.getElementById("FormDocenteDireccionar");
+	form.method="post";
+	form.action="ServletDireccionarDocente";
+	form.submit();
+	alert("a");
+	
+}
 
 function direccionarDocente()
 {

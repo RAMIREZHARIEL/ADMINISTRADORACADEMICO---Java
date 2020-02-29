@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import Dominio.Alumno;
 import Dominio.Docente;
+import Dominio.Usuario;
 import Negocio.AlumnoNeg;
 import Negocio.DocenteNeg;
+import Negocio.UsuarioNeg;
 
 @WebServlet("/ServletAltaDocente")
 public class ServletAltaDocente extends HttpServlet {
@@ -52,6 +54,12 @@ public class ServletAltaDocente extends HttpServlet {
 		
 		
 		DocenteNeg.guardar(docente);
+		Usuario usser = new Usuario();
+		usser.setEliminado(false);
+		usser.setUsser(request.getParameter("txtMailDocente"));
+		usser.setTipo("Docente");
+		usser.setPassword(request.getParameter("txtLegajoDocente"));
+		UsuarioNeg.guardar(usser);
 
 		RequestDispatcher rd=request.getRequestDispatcher("DocenteAlta.jsp");  	
 		rd.forward(request, response);

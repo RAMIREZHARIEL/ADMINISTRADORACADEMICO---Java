@@ -18,8 +18,15 @@ public class Docente {
 	private String Telefono;
 	private int ID;
 	private boolean Estado;
+	private int IDUsuario;
 
 	
+	public int getIDUsuario() {
+		return IDUsuario;
+	}
+	public void setIDUsuario(int iDUsuario) {
+		IDUsuario = iDUsuario;
+	}
 	public int getID() {
 		return ID;
 	}
