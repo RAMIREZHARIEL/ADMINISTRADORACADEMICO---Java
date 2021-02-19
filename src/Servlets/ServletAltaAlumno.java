@@ -72,11 +72,13 @@ public class ServletAltaAlumno extends HttpServlet {
 			alumno.setEstado(true);
 			
 			
-			
-			AlumnoNeg.guardar(alumno);
-
+			if(AlumnoNeg.ValidarIngreso(alumno.getLegajo())==0)
+			{
+				AlumnoNeg.guardar(alumno);				
+			}
 			RequestDispatcher rd=request.getRequestDispatcher("AlumnoAlta.jsp");  	
 			rd.forward(request, response);
+
 		}
 		
 	}

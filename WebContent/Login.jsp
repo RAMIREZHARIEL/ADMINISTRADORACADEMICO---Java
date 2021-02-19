@@ -95,7 +95,12 @@
                   </div>
                 </form>
               </div>
+              <div class="card-header bg-secondary pb-2">
+                <div class="text-light text-center mb-6"><a class="text-light text-right" href="Registro.jsp">REGISTRARSE </a></div>
+
+              </div>
             </div>
+
        	<div class="bg-info">&nbsp </div>
        	<div class="bg-info">&nbsp </div>
        	<div class="bg-info">&nbsp </div>

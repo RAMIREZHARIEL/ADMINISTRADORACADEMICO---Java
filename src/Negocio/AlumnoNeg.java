@@ -79,7 +79,28 @@ private static AccesoBD acceso;
 		
 	}
 	
-	
+	public static int ValidarIngreso(int legajo)
+	{
+		
+		acceso = new AccesoBD();
+		acceso.Open();
+		int Cant=1;
+		String query = "select count(*) as cantidad from Alumnos where legajo="+legajo;
+		try {
+
+			
+		ResultSet rs=acceso.query(query);
+		rs.next();
+		Cant = rs.getInt("cantidad");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally
+		{
+			acceso.close();
+		}
+		return Cant;
+	}
 	
 	
 	public static Alumno ListarAlumnos(int ID)

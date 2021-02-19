@@ -66,7 +66,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                       </div>
-                      <input class="form-control" placeholder="Usuario" type="text" name="txtUsuario">
+                      <input class="form-control" placeholder="Usuario" type="email" name="txtUsuario">
                     </div>
                   </div>
                   <div class="form-group">
@@ -93,7 +93,7 @@
                   
                             <select class="btn btn-dark btn-md" name="TipoLogIn">
 			<option value="Administrador"> Administrador </option>
-		<option value="Docente"> Docente </option>
+<!-- 		<option value="Docente"> Docente </option> -->
 			
 				</select>
                     <input type="submit" name="btnRegistrar" class="btn btn-dark my-4 text-light" value="Registrarse"></input>
@@ -101,6 +101,10 @@
                 </form>
               </div>
             </div>
+                         <div class="card-header bg-secondary pb-2">
+                <div class="text-light text-center mb-6"><a class="text-light text-right" href="Login.jsp">Loguearse</a></div>
+
+              </div>
        	<div class="bg-info ">&nbsp </div>
        	<div class="bg-info ">&nbsp </div>
        	<div class="bg-info ">&nbsp </div>

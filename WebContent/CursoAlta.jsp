@@ -221,7 +221,7 @@
 				      <input type="hidden" id="AniID" value="<%= AnioId%>" > 
 			
 			
-							 <input type="hidden" name="ProfesorSeleccionado"  value="<%= docente.getLegajo() %>">
+							 <input type="hidden" name="ProfesorSeleccionado"  value="<%= docente.getID() %>">
 			
 			
 		                 
@@ -421,6 +421,7 @@
 							document.getElementById("btnAltaCurso").disabled = true;
 							document.getElementById("HabilitarProfesores").style.visibility = 'visible';
 							document.getElementById("HabilitarAlumnos").style.visibility = 'visible';
+							document.getElementById("btnBuscarAlumnos").disabled = true;
 							
 							
 

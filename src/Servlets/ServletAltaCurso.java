@@ -224,8 +224,8 @@ public class ServletAltaCurso extends HttpServlet {
 			curso.setEliminado(false);
 			curso.setSemestre(request.getParameter("SemestreIngresado"));
 			Docente docente = new Docente();
-			docente.setLegajo(Integer.parseInt(request.getParameter("ProfesorSeleccionado")));
-			curso.setDocente(DocenteNeg.ListarDocentes(docente.getLegajo()));
+			docente.setID(Integer.parseInt(request.getParameter("ProfesorSeleccionado")));
+			curso.setDocente(DocenteNeg.ListarDocenteID(docente.getID()));
 			
 			String query2 = "select MAX(ID) as 'MAX' from Cursos";
 			CursoNeg.guardar(curso);

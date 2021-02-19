@@ -27,31 +27,7 @@ public class ServletModificarDocente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	
-		if(request.getParameter("btnModificarDocente")!=null)
-		{
-
-			
-			int legajo = Integer.parseInt(request.getParameter("LegajoDocente"));
-			Docente docente = DocenteNeg.ListarDocentes(legajo);
-			
-			
-			
-			request.setAttribute("Docente", docente);
-			RequestDispatcher rd = request.getRequestDispatcher("DocenteModificar.jsp");
-			rd.forward(request, response);
 		
-		}
-		if(request.getParameter("btnEliminarDocente")!=null)
-		{
-			
-			
-			int ID= Integer.parseInt( request.getParameter("IDDocente"));
-			DocenteNeg.Baja(ID);
-			
-			RequestDispatcher rd=request.getRequestDispatcher("DocenteListado.jsp");  	
-			rd.forward(request, response);
-		}
-
 		
 	}
 
@@ -84,6 +60,32 @@ public class ServletModificarDocente extends HttpServlet {
 		RequestDispatcher rd=request.getRequestDispatcher("DocenteAlta.jsp");  	
 		rd.forward(request, response);
 	}
+	
+	if(request.getParameter("btnModificarDocente")!=null)
+	{
+
+		
+		int ID = Integer.parseInt(request.getParameter("IDDocente"));
+		Docente docente = DocenteNeg.ListarDocenteID(ID);
+		
+		
+		
+		request.setAttribute("Docente", docente);
+		RequestDispatcher rd = request.getRequestDispatcher("DocenteModificar.jsp");
+		rd.forward(request, response);
+	
+	}
+	if(request.getParameter("btnEliminarDocente")!=null)
+	{
+		
+		
+		int ID= Integer.parseInt( request.getParameter("IDDocente"));
+		DocenteNeg.Baja(ID);
+		
+		RequestDispatcher rd=request.getRequestDispatcher("DocenteListado.jsp");  	
+		rd.forward(request, response);
+	}
+
 		
 	}
 

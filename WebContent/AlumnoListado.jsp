@@ -19,23 +19,31 @@
   <link href="assets/img/icons/font/css/open-iconic.css" rel="stylesheet">
   <script type="text/javascript" src="assets/js/ControladorListado.js"></script>
     <script type="text/javascript" src="assets/js/ControladorAlumno.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-  
-  
-  
-  
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  
 
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  
+<script type="text/javascript">
+
+$(document).ready( function () {
+	$("#TablaListaALumnos").DataTable();
+} );
+</script>
 
 </head>
 <body>
 
 
+
+
 			<jsp:include page="Htmls/PanelLateralAdministrador.html"></jsp:include>
 			<div class="main-panel">
+			
+			
 			<div class="container">
 					<jsp:include page="Htmls/HeadAlumnos.html"></jsp:include>
 						
@@ -55,11 +63,18 @@
 						ArrayList<Alumno> lista = (ArrayList<Alumno>) request.getAttribute("ListaAlumnos");	
 					%>
 					
+					<script type="text/javascript">
+
+$(document).ready( function () {
+	$('#TablaListaALumnos').DataTable();
+} );
+</script>
+					
 					
 				<div class="col-md-12">
                   <div class="table-responsive">
                   
-                    <table class="table table-hover" id="TablaListaALumnos">
+                    <table id="TablaListaALumnos" class="table table-hover" >
                       <thead class="">
                       <tr>
                         <th>
@@ -74,24 +89,20 @@
                         <th>
                           Apellido
                         </th>
-                        <th>
-                          F/Nac.
-                        </th>
+
                         <th>
                           Telefono
                         </th>
                         <th>
                           Mail
                         </th>
-                        <th>
-                          Domicilio
-                        </th>
-                        <th>
-                          Localidad
-                        </th>
+
                         <th>
                           Provincia
                         </th>
+<!--                         <th> -->
+<!--                           Ver  -->
+<!--                         </th> -->
                         <th>
                           Modificar
                         </th>
@@ -126,24 +137,21 @@
                           <td>
                       <%= alumno.getApellido() %>
                           </td>
-                          <td>
-                            <%= alumno.getFNacimiento() %>
-                          </td>
+
                           <td>
                                 <%= alumno.getTelefono() %>
                           </td>
                           <td>
                                 <%= alumno.getMail() %>
                           </td>
-                          <td>
-                                <%= alumno.getDireccion() %>
-                          </td>
-                          <td >
-                                <%= alumno.getLocalidad() %>
-                          </td>
+
                           <td>
                                 <%= alumno.getProvincia() %>
                           </td>
+<!--                           <td> -->
+<%--                             <button class="btn oi" data-glyph="person" aria-hidden="true" onclick="direccionar(<%=i %>)" name="btnModificar" id="btnModificar" value="btnModificar" >  </button> --%>
+
+<!--                           </td> -->
                           <td>
                             <button class="btn oi" data-glyph="person" aria-hidden="true" onclick="direccionar(<%=i %>)" name="btnModificar" id="btnModificar" value="btnModificar" >  </button>
 

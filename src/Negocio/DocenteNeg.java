@@ -17,7 +17,7 @@ public class DocenteNeg {
 		acceso = new AccesoBD();
 		acceso.Open();
 		
-		String query = "INSERT INTO Docentes (Legajo, Nombre, Apellido, FNac, Direccion, Localidad, Provincia, Mail, Telefono, Estado) VALUES ('"+nuevo.getLegajo()+"','"+nuevo.getNombre()+"','"+nuevo.getApellido()+"','"+nuevo.getFNacimiento()+"','"+nuevo.getDireccion()+"','"+nuevo.getLocalidad()+"','"+nuevo.getProvincia()+"','"+nuevo.getMail()+"','"+nuevo.getTelefono()+"',"+nuevo.isEstado()+")";
+		String query = "INSERT INTO Docentes (Legajo, Nombre, Apellido, FNac, Direccion, Localidad, Provincia, Mail, Telefono, Estado, IDUsuario) VALUES ('"+nuevo.getLegajo()+"','"+nuevo.getNombre()+"','"+nuevo.getApellido()+"','"+nuevo.getFNacimiento()+"','"+nuevo.getDireccion()+"','"+nuevo.getLocalidad()+"','"+nuevo.getProvincia()+"','"+nuevo.getMail()+"','"+nuevo.getTelefono()+"',"+nuevo.isEstado()+",'"+nuevo.getIDUsuario()+"')";
 		try {
 
 			
@@ -84,7 +84,6 @@ public class DocenteNeg {
 		
 		acceso = new AccesoBD();
 		acceso.Open();
-		ArrayList<Docente> Lista= new ArrayList<Docente>();
 		
 		
 		Docente docente = new Docente();

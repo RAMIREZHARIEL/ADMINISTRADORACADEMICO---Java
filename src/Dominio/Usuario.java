@@ -7,12 +7,12 @@ public class Usuario {
 	private String Tipo;
 	private boolean Eliminado;
 	private int IDUsuario;
-	private static int cant=0;
+//	private static int cant=0;
 	
 	public Usuario()
 	{
-		cant++;
-		this.IDUsuario=cant;
+//		cant++;
+//		this.IDUsuario=cant;
 		
 	}
 	

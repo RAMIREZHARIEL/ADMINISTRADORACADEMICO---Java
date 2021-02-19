@@ -54,7 +54,7 @@
 
       <div class="logo">
         <a  class="simple-text logo-normal active">
-          DOCENTE
+          Docente: <%= docente.getApellido()%>, <%= docente.getNombre() %>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -86,7 +86,7 @@
       </div>
     </div>    
 
-    
+
     
     <!--  TERMINA -->
     

@@ -53,13 +53,17 @@ public class ServletAltaDocente extends HttpServlet {
 		
 		
 		
-		DocenteNeg.guardar(docente);
+//		DocenteNeg.guardar(docente);
 		Usuario usser = new Usuario();
 		usser.setEliminado(false);
 		usser.setUsser(request.getParameter("txtMailDocente"));
 		usser.setTipo("Docente");
 		usser.setPassword(request.getParameter("txtLegajoDocente"));
 		UsuarioNeg.guardar(usser);
+		
+		docente.setIDUsuario(UsuarioNeg.getIDUsuario(usser.getUsser(), usser.getPassword(), usser.getTipo()));
+		
+		DocenteNeg.guardar(docente);
 
 		RequestDispatcher rd=request.getRequestDispatcher("DocenteAlta.jsp");  	
 		rd.forward(request, response);

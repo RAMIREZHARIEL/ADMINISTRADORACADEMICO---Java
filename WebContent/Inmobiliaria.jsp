@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,28 +8,29 @@
   <script src="assets/js/bootstrap.min.js"></script>
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/popper.min.js"></script>
-  <script type="text/javascript" src="assets/js/ControladorAlumno.js"></script>
   
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   
   
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   
-<title>TP Integrador</title>
+
+
+<title>Inmobiliaria Alonso</title>
 </head>
 <body>
 
 
-
-
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+<div class="sidebar" data-color="blue" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
 
       <div class="logo">
-        <a href="#" class="simple-text logo-normal active">
-          Administrador
-        </a>
+              <a class="navbar-brand mr-lg-11" href="https://www.inmobiliariaalonso.com.ar/">
+      
+        <img src="assets/img/brand/InmobiliariaAlonso.png" alt="brand">
+          </a>
+        
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -36,24 +39,13 @@
 
             <a class="nav-link" href="Administrador.jsp">
               <i class="material-icons">person</i>
-              <p>Alumnos</p>
+              <p>Clientes</p>
             </a>
 
           </li>
 
           
-          <li class="nav-item">
-            <a class="nav-link" href="AdministradorDocentes.jsp">
-              <i class="material-icons">person</i>
-              <p>Profesores</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="AdministradorCursos.jsp">
-              <i class="material-icons">content_paste</i>
-              <p>Cursos</p>
-            </a>
-          </li>
+
 
            <li class="nav-item ">
             <a class="nav-link" href="Login.jsp">
@@ -66,5 +58,17 @@
         </ul>
       </div>
     </div>
+		
+		
+		
+		
+		<div class="main-panel">
+		<div class="container">
+					<jsp:include page="Htmls/HeadAlumnos.html"></jsp:include>
+					<jsp:include page="Htmls/AlumnoAlta.html"></jsp:include>
+
+          </div>
+		               </div>
+
 </body>
 </html>

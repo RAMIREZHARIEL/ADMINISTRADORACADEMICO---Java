@@ -42,6 +42,7 @@ public class ServletUsuario extends HttpServlet {
 				usuario.setTipo(request.getParameter("TipoLogIn"));
 				
 				//UsuarioNeg usuarioNeg = new UsuarioNeg();
+				if(UsuarioNeg.validar(usuario.getUsser())==0) {
 				if(UsuarioNeg.guardar(usuario))
 				{
 					RequestDispatcher rd=request.getRequestDispatcher("Login.jsp");  	
@@ -56,6 +57,13 @@ public class ServletUsuario extends HttpServlet {
 					rd.forward(request, response);
 					//new JOptionPane("Error al intentar registrarse, intente nuevamente.");
 				}	
+				}
+				else
+				{
+					RequestDispatcher rd=request.getRequestDispatcher("Registro.jsp");  	
+					rd.forward(request, response);
+					//new JOptionPane("Error al intentar registrarse, intente nuevamente.");
+				}
 				
 			
 		}

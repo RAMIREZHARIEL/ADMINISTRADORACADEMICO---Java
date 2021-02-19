@@ -112,7 +112,6 @@ function  AltaAlumno(){
 		{
 		form.method = "post";
 		form.action="ServletAltaAlumno";
-		setTimeout(AlertIngresado(),5000);
 		
 		}
 	else if(!ok)
@@ -239,7 +238,6 @@ function ModificarAlumno()
 		{
 		form.method = "post";
 		form.action="ServletModificarAlumno";
-		setTimeout(AlertModificado(),5000);
 		
 		}
 	else if(!ok)

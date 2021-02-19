@@ -108,7 +108,6 @@ function  AltaDocente(){
 		{
 		form.method = "post";
 		form.action="ServletAltaDocente";
-		setTimeout(AlertIngresado(),5000);
 		
 		}
 	else if(!ok)
@@ -233,7 +232,6 @@ function ModificarDocente()
 		{
 		form.method = "post";
 		form.action="ServletModificarDocente";
-		setTimeout(AlertModificado(),5000);
 		
 		}
 	else if(!ok)
@@ -246,38 +244,20 @@ function ModificarDocente()
 
 }
 
-function EliminarDocente()
+function EliminarDocente(IDTabla)
 {
 	
 
-	var tabla = document.getElementById("TablaListaDocentes"),rIndex, cIndex;
-	var boton = document.getElementsByName("btnEliminarDocente");
-
-	for (var i=0; i<tabla.rows.length;i++)
-	{
+	var form = document.getElementById("formTablaDocentes"+IDTabla);
+	form.method="post";
+	form.action="ServletModificarDocente";
+	AlertEliminado();
 	
-	for(var j=0; j<tabla.rows[i].cells.length;j++)
-		{
-		tabla.rows[i].cells[j].onclick = function()
-		{
-
-			var ok= confirm("Seguro que desea eliminar?");
-			if (ok)
-				{
-				
-				rIndex= this.parentElement.rowIndex;
-				cIndex= this.cellIndex;
-				var x = "formTablaDocentes"+rIndex;
-				var form = document.getElementById(x);
-				form.method="get";
-				form.action="ServletModificarDocente";
-				
-				}
-		};
-		}
 	
-	}
-	
+}
+function AlertEliminado()
+{
+alert("Eliminado con exito.");	
 }
 
 function EnviarDocente()
@@ -290,32 +270,13 @@ function EnviarDocente()
 	
 }
 
-function direccionarDocente()
+function direccionarDocente(IDTabla)
 {
-	
-	
-	var tabla = document.getElementById("TablaListaDocentes"),rIndex, cIndex;
-	var boton = document.getElementsByName("btnModificarDocente");
-
-
-	for (var i=0; i<tabla.rows.length;i++)
-		{
-		
-		for(var j=0; j<tabla.rows[i].cells.length;j++)
-			{
-			tabla.rows[i].cells[j].onclick = function()
-			{
-
-					rIndex= this.parentElement.rowIndex;
-					cIndex= this.cellIndex;
-						var x = "formTablaDocentes"+rIndex;
-						var form = document.getElementById(x);
-						form.method="get";
-						form.action="ServletModificarDocente";
+	var form = document.getElementById("formTablaDocentes"+IDTabla);
+	form.method="post";
+	form.action="ServletModificarDocente";
 						
-			};
-			}
 		
-		}
+		
 	
 }

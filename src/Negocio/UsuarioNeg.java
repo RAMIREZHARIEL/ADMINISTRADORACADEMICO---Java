@@ -10,6 +10,31 @@ public class UsuarioNeg {
 	
 	private static AccesoBD acceso;
 	
+	public static int validar(String email)
+	{
+		acceso = new AccesoBD();
+		acceso.Open();
+		ResultSet rs=null;
+		int Cant=0;
+		String query = "select count(*) as cant from usuarios where Usser='"+email+"'";
+
+		try {
+
+			rs=acceso.query(query);
+			rs.next();
+			Cant=rs.getInt("cant");
+
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally
+		{
+			acceso.close();
+		}
+			
+		return Cant;
+	}
+	
 	public static boolean guardar(Usuario nuevo)
 	{
 		boolean estado=true;
