@@ -40,7 +40,4 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/creativetimofficial/argon-design-system.git"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-}
+  }}

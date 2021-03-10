@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
-import com.mysql.jdbc.PreparedStatement;
+//import com.mysql.jdbc.PreparedStatement;
 
 import Conexion.AccesoBD;
 import Dominio.Alumno;
